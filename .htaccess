@@ -1,0 +1,9 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+RewriteRule ^Accueil$ index.php
+RewriteRule ^Connexion$ public/login.php
+RewriteRule ^Inscription$ public/register.php
+RewriteRule ^Soldes$ public/solde.php
+RewriteRule ^Categorie/(.*)$ public/category.php?categorie=$1
