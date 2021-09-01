@@ -28,7 +28,7 @@ session_start();
       </ul>
       <ul>
         <?php if (isset($_SESSION['email'])) : ?>
-          <li><a href="Deconnexion"><i class="fas fa-user"></i><span>Déconnexion</span></a></li>
+          <li><a href="Deconnexion"><i class="fas fa-times"></i><span> Déconnexion</span></a></li>
         <?php else : ?>
           <li><a href="Connexion"><i class="fas fa-user"></i><span> Se connecter</span></a></li>
           <li><a href="Inscription"><i class="fas fa-sign-in-alt"></i><span> S'inscrire</span></a></li>
