@@ -24,7 +24,7 @@ if (empty($_FILES['image'])) {
   $erreur .= "<span class='erreur'>Erreur veuillez entrer une image</span>";
 }
 
-if (empty($_POST['reduction'])) {
+if ($_POST['statut'] == "Solde" && empty($_POST['reduction'])) {
   $erreur .= "<span class='erreur'>Erreur veuillez entrer une réduction</span>";
 }
 
@@ -34,6 +34,7 @@ if (empty($erreur)) {
   $dest = $_SERVER['DOCUMENT_ROOT'] . "/la_boutique/public/img/" . $name;
   move_uploaded_file($temp, $dest);
   addProduct($_POST, $name);
+  $erreur .= "<span class='succes'>Ajout réussi</span>";
 }
 
 ?>
@@ -99,8 +100,8 @@ if (empty($erreur)) {
         <option value="XL">XL</option>
       </select>
       <select name="statut">
-        <option value="solde">Solde</option>
-        <option value="new">New</option>
+        <option value="Solde">Solde</option>
+        <option value="New">New</option>
       </select>
       <input type="text" name="reduction" placeholder="Réduction" value="<?= $_POST['reduction'] ?>">
       <input type="submit" name="send" value="Connexion">
