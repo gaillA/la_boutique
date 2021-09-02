@@ -142,6 +142,15 @@ main h2 {
   margin-bottom: 10px;
 }
 
+.succes {
+  display: inline-block;
+  background: rgb(54, 195, 73);
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
 form {
   text-align: center;
   height: 60vh;

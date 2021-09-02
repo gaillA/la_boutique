@@ -23,7 +23,7 @@ if (empty($_POST['mdp'])) {
 if (empty($erreur)) {
   if (!userExist($_POST['email'])) {
     addUser($_POST);
-    $erreur = "<span class='erreur'>Cet email est déjà utilisé</span>";
+    $erreur = "<span class='succes'>Inscription réussie</span>";
   } else {
     $erreur = "<span class='erreur'>Cet email est déjà utilisé</span>";
   }
