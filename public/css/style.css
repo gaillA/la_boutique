@@ -62,6 +62,43 @@ nav ul li a:hover {
   background: var(--navy-dark-blue);
 }
 
+li a:hover,
+.dropdown:hover .dropbtn {
+  background-color: var(--navy-dark-blue);
+}
+
+li.dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  z-index: 1;
+  right: 0;
+}
+
+.mobile {
+  min-width: 130px;
+}
+
+.dropdown-content a {
+  color: black;
+  display: block;
+  text-align: center;
+}
+
+.dropdown-content a:hover {
+  background-color: var(--blue-grotto);
+  color: white;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
 main h2 {
   text-align: center;
   padding: 30px 0;

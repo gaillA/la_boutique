@@ -28,7 +28,13 @@ session_start();
       </ul>
       <ul>
         <?php if (isset($_SESSION['email'])) : ?>
-          <li><a href="Deconnexion"><i class="fas fa-times"></i><span> Déconnexion</span></a></li>
+          <li class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn"><i class="fas fa-user"></i><span> <?= $_SESSION['prenom'] ?></span></a>
+            <div class="dropdown-content mobile">
+              <a href="Panier"><i class="fas fa-shopping-cart"></i><span> Mes achats</span></a>
+              <a href="Deconnexion"><i class="fas fa-times"></i><span> Déconnexion</span></a>
+            </div>
+          </li>
         <?php else : ?>
           <li><a href="Connexion"><i class="fas fa-user"></i><span> Se connecter</span></a></li>
           <li><a href="Inscription"><i class="fas fa-sign-in-alt"></i><span> S'inscrire</span></a></li>
