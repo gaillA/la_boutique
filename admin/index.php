@@ -50,7 +50,7 @@ if ($_SESSION['type'] != 'admin')
   </header>
   <main class="container">
     <h2>Panel Admin</h2>
-    <a href="#">Ajouter produit</a>
+    <a href="Admin/AjouterProduit">Ajouter produit</a>
     <a href="#">Liste clients</a>
     <a href="#">Liste produits</a>
   </main>
