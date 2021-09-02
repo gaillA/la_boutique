@@ -5,5 +5,6 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^Accueil$ index.php
 RewriteRule ^Connexion$ public/login.php
 RewriteRule ^Inscription$ public/register.php
+RewriteRule ^Deconnexion$ fonctions/deconnexion.php
 RewriteRule ^Soldes$ public/solde.php
 RewriteRule ^Categorie/(.*)$ public/category.php?categorie=$1
