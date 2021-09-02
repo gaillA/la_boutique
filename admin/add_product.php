@@ -9,23 +9,27 @@ $erreur = "";
 $categories = getCategories();
 
 if (empty($_POST['titre'])) {
-  $erreur .= "<span class='erreur'>Erreur veuillez entrer un titre</span>";
+  $erreur .= "<span class='erreur'>Erreur veuillez entrer un titre</span><br>";
 }
 
 if (empty($_POST['description'])) {
-  $erreur .= "<span class='erreur'>Erreur veuillez entrer une description</span>";
+  $erreur .= "<span class='erreur'>Erreur veuillez entrer une description</span><br>";
 }
 
 if (empty($_POST['prix'])) {
-  $erreur .= "<span class='erreur'>Erreur veuillez entrer un prix</span>";
+  $erreur .= "<span class='erreur'>Erreur veuillez entrer un prix</span><br>";
+} elseif (!is_numeric($_POST['prix'])) {
+  $erreur .= "<span class='erreur'>Erreur le prix doit être numérique</span><br>";
 }
 
 if (empty($_FILES['image']['name'])) {
-  $erreur .= "<span class='erreur'>Erreur veuillez entrer une image</span>";
+  $erreur .= "<span class='erreur'>Erreur veuillez entrer une image</span><br>";
 }
 
 if ($_POST['statut'] == "Solde" && empty($_POST['reduction'])) {
-  $erreur .= "<span class='erreur'>Erreur veuillez entrer une réduction</span>";
+  $erreur .= "<span class='erreur'>Erreur veuillez entrer une réduction</span><br>";
+} elseif (!is_numeric($_POST['reduction'])) {
+  $erreur .= "<span class='erreur'>Erreur la réduction doit être numérique</span><br>";
 }
 
 if (empty($erreur)) {
@@ -84,10 +88,10 @@ if (empty($erreur)) {
   <main class="container">
     <h2>Ajouter produit</h2>
     <form method="post" enctype="multipart/form-data">
-      <input type="text" name="titre" placeholder="Titre" value="<?= $_POST['titre'] ?>">
-      <input type="text" name="description" placeholder="Description" value="<?= $_POST['description'] ?>">
-      <input type="text" name="prix" placeholder="Prix" value="<?= $_POST['prix'] ?>">
-      <input type="file" name="image" placeholder="Image">
+      <input type="text" name="titre" placeholder="Titre" value="<?= $_POST['titre'] ?>"><br>
+      <textarea name="description" placeholder="Description"><?= $_POST['description'] ?></textarea><br>
+      <input type="text" name="prix" placeholder="Prix" value="<?= $_POST['prix'] ?>"><br>
+      <input type="file" name="image" placeholder="Image"><br>
       <select name="categorie">
         <?php foreach ($categories as $cat) : ?>
           <option value="<?= $cat['id_categorie'] ?>"><?= $cat['nom'] ?></option>
@@ -98,13 +102,13 @@ if (empty($erreur)) {
         <option value="M">M</option>
         <option value="L">L</option>
         <option value="XL">XL</option>
-      </select>
+      </select><br>
       <select name="statut">
         <option value="Solde">Solde</option>
         <option value="New">New</option>
       </select>
-      <input type="text" name="reduction" placeholder="Réduction" value="<?= $_POST['reduction'] ?>">
-      <input type="submit" name="send" value="Connexion">
+      <input type="text" name="reduction" placeholder="Réduction" value="<?= $_POST['reduction'] ?>"><br>
+      <input type="submit" name="send" value="Connexion"><br>
       <?php if (isset($_POST['send'])) : ?>
         <?= $erreur ?>
       <?php endif ?>

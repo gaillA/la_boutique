@@ -5,11 +5,11 @@ session_start();
 $erreur = "";
 
 if (empty($_POST['email'])) {
-  $erreur .= "<span class='erreur'>Erreur veuillez entrer un mail</span>";
+  $erreur .= "<span class='erreur'>Erreur veuillez entrer un mail</span><br>";
 }
 
 if (empty($_POST['mdp'])) {
-  $erreur .= "<span class='erreur'>Erreur veuillez entrer un mot de passe</span>";
+  $erreur .= "<span class='erreur'>Erreur veuillez entrer un mot de passe</span><br>";
 }
 
 if (empty($erreur)) {
@@ -62,9 +62,9 @@ if (isset($_SESSION['email']))
   <main class="container">
     <h2>Connexion</h2>
     <form method="post">
-      <input type="text" name="email" placeholder="Email" value="<?= $_POST['email'] ?>">
-      <input type="password" name="mdp" placeholder="Mdp" value="<?= $_POST['mdp'] ?>">
-      <input type="submit" name="send" value="Connexion">
+      <input type="text" name="email" placeholder="Email" value="<?= $_POST['email'] ?>"><br>
+      <input type="password" name="mdp" placeholder="Mdp" value="<?= $_POST['mdp'] ?>"><br>
+      <input type="submit" name="send" value="Connexion"><br>
       <?php if (isset($_POST['send'])) : ?>
         <?= $erreur ?>
       <?php endif ?>

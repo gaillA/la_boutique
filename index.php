@@ -59,7 +59,12 @@ $produits = getProducts();
           <div class="card-content">
             <h3><a href="Produit/<?= $produit['id_product'] ?>"><?= $produit['titre'] ?></a></h3>
             <div>
-              <span class="price"><?= $produit['prix'] ?> €</span>
+              <span class="price"><?= $produit['prix'] - $produit['prix'] * $produit['reduction'] / 100 ?> €</span>
+              <?php if ($produit['reduction'] > 0) : ?>
+                <span class="solde">Solde</span>
+              <?php else : ?>
+                <span class="new">New</span>
+              <?php endif ?>
               <a href="#" class="button-buy">Acheter</a>
             </div>
           </div>

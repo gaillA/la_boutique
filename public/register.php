@@ -5,27 +5,27 @@ session_start();
 $erreur = "";
 
 if (empty($_POST['prenom'])) {
-  $erreur .= "<span class='erreur'>Erreur veuillez entrer un prenom</span>";
+  $erreur .= "<span class='erreur'>Erreur veuillez entrer un prenom</span><br>";
 }
 
 if (empty($_POST['nom'])) {
-  $erreur .= "<span class='erreur'>Erreur veuillez entrer un nom</span>";
+  $erreur .= "<span class='erreur'>Erreur veuillez entrer un nom</span><br>";
 }
 
 if (empty($_POST['email'])) {
-  $erreur .= "<span class='erreur'>Erreur veuillez entrer un email</span>";
+  $erreur .= "<span class='erreur'>Erreur veuillez entrer un email</span><br>";
 }
 
 if (empty($_POST['mdp'])) {
-  $erreur .= "<span class='erreur'>Erreur veuillez entrer un mot de passe</span>";
+  $erreur .= "<span class='erreur'>Erreur veuillez entrer un mot de passe</span><br>";
 }
 
 if (empty($erreur)) {
   if (!userExist($_POST['email'])) {
     addUser($_POST);
-    $erreur = "<span class='succes'>Inscription réussie</span>";
+    $erreur = "<span class='succes'>Inscription réussie</span><br>";
   } else {
-    $erreur = "<span class='erreur'>Cet email est déjà utilisé</span>";
+    $erreur = "<span class='erreur'>Cet email est déjà utilisé</span><br>";
   }
 }
 
@@ -67,11 +67,11 @@ if (isset($_SESSION['email']))
   <main class="container">
     <h2>Inscription</h2>
     <form method="post">
-      <input type="text" name="prenom" placeholder="Prenom" value="<?= $_POST['prenom'] ?>">
-      <input type="text" name="nom" placeholder="Nom" value="<?= $_POST['nom'] ?>">
-      <input type="text" name="email" placeholder="Email" value="<?= $_POST['email'] ?>">
-      <input type="password" name="mdp" placeholder="Mdp" value="<?= $_POST['mdp'] ?>">
-      <input type="submit" name="send" value="Inscription">
+      <input type="text" name="prenom" placeholder="Prenom" value="<?= $_POST['prenom'] ?>"><br>
+      <input type="text" name="nom" placeholder="Nom" value="<?= $_POST['nom'] ?>"><br>
+      <input type="text" name="email" placeholder="Email" value="<?= $_POST['email'] ?>"><br>
+      <input type="password" name="mdp" placeholder="Mdp" value="<?= $_POST['mdp'] ?>"><br>
+      <input type="submit" name="send" value="Inscription"><br>
       <?php if (isset($_POST['send'])) : ?>
         <?= $erreur ?>
       <?php endif ?>

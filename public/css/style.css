@@ -190,10 +190,7 @@ main h2 {
 
 form {
   text-align: center;
-  height: 60vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  margin: 0 auto;
 }
 
 form input[type="text"],
@@ -204,6 +201,16 @@ form select {
   border-style: none;
   padding: 10px 30px 10px 10px;
   margin-bottom: 10px;
+  border: solid 2px var(--blue-grotto);
+}
+
+form textarea {
+  resize: none;
+  border-style: none;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  width: 213px;
   border: solid 2px var(--blue-grotto);
 }
 
@@ -226,8 +233,50 @@ form input[type="submit"] {
   margin-bottom: 10px;
 }
 
+.button {
+  display: inline-block;
+  text-decoration: none;
+  padding: 10px 20px;
+  background: var(--navy-blue);
+  color: white;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.button:hover {
+  background: var(--navy-dark-blue);
+}
+
+.panel {
+  text-align: center;
+}
+
 form input[type="submit"]:hover {
   background: var(--navy-dark-blue);
+}
+
+.card-content > div {
+  position: relative;
+}
+
+.solde {
+  color: rgb(185, 131, 31);
+  position: absolute;
+  bottom: 290px;
+  left: 0px;
+  font-weight: bolder;
+  font-size: 20px;
+  transform: rotate(-45deg);
+}
+
+.new {
+  color: rgb(18, 173, 4);
+  position: absolute;
+  bottom: 290px;
+  left: 0px;
+  font-weight: bolder;
+  font-size: 20px;
+  transform: rotate(-45deg);
 }
 
 @media screen and (max-width: 768px) {
