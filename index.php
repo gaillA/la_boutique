@@ -31,6 +31,9 @@ session_start();
           <li class="dropdown">
             <a href="javascript:void(0)" class="dropbtn"><i class="fas fa-user"></i><span> <?= $_SESSION['prenom'] ?></span></a>
             <div class="dropdown-content mobile">
+              <?php if ($_SESSION['type'] == 'admin') : ?>
+                <a href="Admin"><i class="fas fa-tachometer-alt"></i><span> Panel admin</span></a>
+              <?php endif ?>
               <a href="Panier"><i class="fas fa-shopping-cart"></i><span> Mes achats</span></a>
               <a href="Deconnexion"><i class="fas fa-times"></i><span> Déconnexion</span></a>
             </div>
