@@ -2,32 +2,7 @@
 include_once "../fonctions/fonctions.php";
 session_start();
 
-$erreur = "";
-
-if (empty($_POST['prenom'])) {
-  $erreur .= "<span class='erreur'>Erreur veuillez entrer un prenom</span><br>";
-}
-
-if (empty($_POST['nom'])) {
-  $erreur .= "<span class='erreur'>Erreur veuillez entrer un nom</span><br>";
-}
-
-if (empty($_POST['email'])) {
-  $erreur .= "<span class='erreur'>Erreur veuillez entrer un email</span><br>";
-}
-
-if (empty($_POST['mdp'])) {
-  $erreur .= "<span class='erreur'>Erreur veuillez entrer un mot de passe</span><br>";
-}
-
-if (empty($erreur)) {
-  if (!userExist($_POST['email'])) {
-    addUser($_POST);
-    $erreur = "<span class='succes'>Inscription réussie</span><br>";
-  } else {
-    $erreur = "<span class='erreur'>Cet email est déjà utilisé</span><br>";
-  }
-}
+$erreur = errorsInscription($_POST);
 
 if (isset($_SESSION['email']))
   header("Location: Accueil");

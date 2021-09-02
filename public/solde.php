@@ -14,7 +14,7 @@ $produits = getSoldes();
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="public/css/fontawesome-all.min.css">
   <link rel="stylesheet" href="public/css/style.css">
-  <title>La Maison - Accueil</title>
+  <title>La Maison - Soldes</title>
 </head>
 
 <body>

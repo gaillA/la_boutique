@@ -5,41 +5,8 @@ session_start();
 if ($_SESSION['type'] != 'admin')
   header("Location: ../Accueil");
 
-$erreur = "";
+$erreur = errorsAddProduct($_POST, $_FILES);
 $categories = getCategories();
-
-if (empty($_POST['titre'])) {
-  $erreur .= "<span class='erreur'>Erreur veuillez entrer un titre</span><br>";
-}
-
-if (empty($_POST['description'])) {
-  $erreur .= "<span class='erreur'>Erreur veuillez entrer une description</span><br>";
-}
-
-if (empty($_POST['prix'])) {
-  $erreur .= "<span class='erreur'>Erreur veuillez entrer un prix</span><br>";
-} elseif (!is_numeric($_POST['prix'])) {
-  $erreur .= "<span class='erreur'>Erreur le prix doit être numérique</span><br>";
-}
-
-if (empty($_FILES['image']['name'])) {
-  $erreur .= "<span class='erreur'>Erreur veuillez entrer une image</span><br>";
-}
-
-if ($_POST['statut'] == "Solde" && empty($_POST['reduction'])) {
-  $erreur .= "<span class='erreur'>Erreur veuillez entrer une réduction</span><br>";
-} elseif (!is_numeric($_POST['reduction'])) {
-  $erreur .= "<span class='erreur'>Erreur la réduction doit être numérique</span><br>";
-}
-
-if (empty($erreur)) {
-  $temp = $_FILES['image']['tmp_name'];
-  $name = $_FILES['image']['name'];
-  $dest = $_SERVER['DOCUMENT_ROOT'] . "/la_boutique/public/img/" . $name;
-  move_uploaded_file($temp, $dest);
-  addProduct($_POST, $name);
-  $erreur .= "<span class='succes'>Ajout réussi</span>";
-}
 
 ?>
 
@@ -53,7 +20,7 @@ if (empty($erreur)) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="public/css/fontawesome-all.min.css">
   <link rel="stylesheet" href="public/css/style.css">
-  <title>La Maison - Panel Admin</title>
+  <title>La Maison - Ajouter produit</title>
 </head>
 
 <body>

@@ -29,3 +29,29 @@ function getUser($email, $mdp)
     return "<span class='erreur'>Erreur utilisateur non trouvé</span>";
   }
 }
+
+function errorsConnexion($post)
+{
+  $erreur = "";
+
+  if (empty($post['email'])) {
+    $erreur .= "<span class='erreur'>Erreur veuillez entrer un mail</span><br>";
+  }
+  if (empty($post['mdp'])) {
+    $erreur .= "<span class='erreur'>Erreur veuillez entrer un mot de passe</span><br>";
+  }
+
+  if (empty($erreur)) {
+    $user = getUser($_POST['email'], $_POST['mdp']);
+    if (is_array($user)) {
+      $_SESSION['nom'] = $user['nom'];
+      $_SESSION['prenom'] = $user['prenom'];
+      $_SESSION['email'] = $user['email'];
+      $_SESSION['type'] = $user['type'];
+    } else {
+      $erreur = $user;
+    }
+  }
+
+  return $erreur;
+}

@@ -21,6 +21,42 @@ function addProduct($prod, $img)
   }
 }
 
+function errorsAddProduct($post, $files)
+{
+  $erreur = "";
+
+  if (empty($post['titre'])) {
+    $erreur .= "<span class='erreur'>Erreur veuillez entrer un titre</span><br>";
+  }
+  if (empty($post['description'])) {
+    $erreur .= "<span class='erreur'>Erreur veuillez entrer une description</span><br>";
+  }
+  if (empty($post['prix'])) {
+    $erreur .= "<span class='erreur'>Erreur veuillez entrer un prix</span><br>";
+  } elseif (!is_numeric($post['prix'])) {
+    $erreur .= "<span class='erreur'>Erreur le prix doit être numérique</span><br>";
+  }
+  if (empty($files['image']['name'])) {
+    $erreur .= "<span class='erreur'>Erreur veuillez entrer une image</span><br>";
+  }
+  if ($post['statut'] == "Solde" && empty($post['reduction'])) {
+    $erreur .= "<span class='erreur'>Erreur veuillez entrer une réduction</span><br>";
+  } elseif (!empty($post['reduction']) && !is_numeric($post['reduction'])) {
+    $erreur .= "<span class='erreur'>Erreur la réduction doit être numérique</span><br>";
+  }
+
+  if (empty($erreur)) {
+    $temp = $_FILES['image']['tmp_name'];
+    $name = $_FILES['image']['name'];
+    $dest = $_SERVER['DOCUMENT_ROOT'] . "/la_boutique/public/img/" . $name;
+    move_uploaded_file($temp, $dest);
+    addProduct($_POST, $name);
+    $erreur .= "<span class='succes'>Ajout réussi</span>";
+  }
+
+  return $erreur;
+}
+
 function getProducts()
 {
   $db = dbConnect();
