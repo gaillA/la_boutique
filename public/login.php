@@ -26,6 +26,7 @@ if (empty($erreur)) {
 
 if (isset($_SESSION['email']))
   header("Location: Accueil");
+
 ?>
 
 <!DOCTYPE html>
@@ -61,9 +62,9 @@ if (isset($_SESSION['email']))
   <main class="container">
     <h2>Connexion</h2>
     <form method="post">
-      <input type="text" name="email" placeholder="email"><br>
-      <input type="password" name="mdp" placeholder="mdp"><br>
-      <input type="submit" name="send" value="Connexion"><br>
+      <input type="text" name="email" placeholder="Email" value="<?= $_POST['email'] ?>">
+      <input type="password" name="mdp" placeholder="Mdp" value="<?= $_POST['mdp'] ?>">
+      <input type="submit" name="send" value="Connexion">
       <?php if (isset($_POST['send'])) : ?>
         <?= $erreur ?>
       <?php endif ?>

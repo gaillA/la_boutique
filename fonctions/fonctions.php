@@ -2,3 +2,4 @@
 
 include_once "database.php";
 include_once "connexion.php";
+include_once "inscription.php";
