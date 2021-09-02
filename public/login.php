@@ -2,7 +2,17 @@
 include_once "../fonctions/fonctions.php";
 session_start();
 
-if (!empty($_POST['email']) && !empty($_POST['mdp'])) {
+$erreur = "";
+
+if (empty($_POST['email'])) {
+  $erreur .= "<span class='erreur'>Erreur veuillez entrer un mail</span>";
+}
+
+if (empty($_POST['mdp'])) {
+  $erreur .= "<span class='erreur'>Erreur veuillez entrer un mot de passe</span>";
+}
+
+if (empty($erreur)) {
   $user = getUser($_POST['email'], $_POST['mdp']);
   if (is_array($user)) {
     $_SESSION['nom'] = $user['nom'];
@@ -53,9 +63,11 @@ if (isset($_SESSION['email']))
     <form method="post">
       <input type="text" name="email" placeholder="email"><br>
       <input type="password" name="mdp" placeholder="mdp"><br>
-      <button>Connexion</button>
+      <input type="submit" name="send" value="Connexion"><br>
+      <?php if (isset($_POST['send'])) : ?>
+        <?= $erreur ?>
+      <?php endif ?>
     </form>
-    <?= $erreur ?>
   </main>
   <script src="public/js/jquery-3.6.0.min.js"></script>
   <script src="public/js/main.js"></script>
