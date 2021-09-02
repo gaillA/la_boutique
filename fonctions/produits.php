@@ -20,3 +20,21 @@ function addProduct($prod, $img)
     $req->execute([$titre, $description, $prix, $img, $categorie, $taille, $statut]);
   }
 }
+
+function getProducts()
+{
+  $db = dbConnect();
+  $req = $db->prepare("SELECT * FROM products");
+  $req->execute();
+  $result = $req->fetchAll(PDO::FETCH_ASSOC);
+  return $result;
+}
+
+function getProduct($id)
+{
+  $db = dbConnect();
+  $req = $db->prepare("SELECT * FROM products WHERE id_product = ?");
+  $req->execute([$id]);
+  $result = $req->fetch(PDO::FETCH_ASSOC);
+  return $result;
+}

@@ -1,6 +1,7 @@
 <?php
 include_once "fonctions/fonctions.php";
 session_start();
+$produits = getProducts();
 ?>
 
 <!DOCTYPE html>
@@ -48,34 +49,22 @@ session_start();
   <main class="container">
     <h2>Accueil</h2>
     <div class="products">
-      <div class="card">
-        <div class="img-card">
-          <a href="pages/detail_product.php">
-            <img src="public/img/homme.jpg">
-          </a>
-        </div>
-        <div class="card-content">
-          <h3><a href="pages/detail_product.php">Pull Homme</a></h3>
-          <div>
-            <span class="price">27 €</span>
-            <a href="#" class="button-buy">Acheter</a>
+      <?php foreach ($produits as $produit) : ?>
+        <div class="card">
+          <div class="img-card">
+            <a href="Produit/<?= $produit['id_product'] ?>">
+              <img src="public/img/<?= $produit['url_image'] ?>">
+            </a>
+          </div>
+          <div class="card-content">
+            <h3><a href="Produit/<?= $produit['id_product'] ?>"><?= $produit['titre'] ?></a></h3>
+            <div>
+              <span class="price"><?= $produit['prix'] ?> €</span>
+              <a href="#" class="button-buy">Acheter</a>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="card">
-        <div class="img-card">
-          <a href="pages/detail_product.php">
-            <img src="public/img/femme.webp">
-          </a>
-        </div>
-        <div class="card-content">
-          <h3><a href="pages/detail_product.php">Robe Femme</a></h3>
-          <div>
-            <span class="price">23 €</span>
-            <a href="#" class="button-buy">Acheter</a>
-          </div>
-        </div>
-      </div>
+      <?php endforeach ?>
     </div>
   </main>
   <script src="public/js/jquery-3.6.0.min.js"></script>

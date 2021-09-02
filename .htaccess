@@ -8,5 +8,6 @@ RewriteRule ^Inscription$ public/register.php
 RewriteRule ^Deconnexion$ fonctions/deconnexion.php
 RewriteRule ^Soldes$ public/solde.php
 RewriteRule ^Categorie/(.*)$ public/category.php?categorie=$1
+RewriteRule ^Produit/(.*)$ public/detail_product.php?produit=$1
 RewriteRule ^Admin$ admin/index.php
 RewriteRule ^AjouterProduit$ admin/add_product.php

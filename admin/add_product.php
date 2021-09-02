@@ -20,7 +20,7 @@ if (empty($_POST['prix'])) {
   $erreur .= "<span class='erreur'>Erreur veuillez entrer un prix</span>";
 }
 
-if (empty($_FILES['image'])) {
+if (empty($_FILES['image']['name'])) {
   $erreur .= "<span class='erreur'>Erreur veuillez entrer une image</span>";
 }
 
