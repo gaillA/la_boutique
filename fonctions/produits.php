@@ -38,3 +38,12 @@ function getProduct($id)
   $result = $req->fetch(PDO::FETCH_ASSOC);
   return $result;
 }
+
+function getSoldes()
+{
+  $db = dbConnect();
+  $req = $db->prepare("SELECT * FROM products WHERE statut = (?)");
+  $req->execute(['Solde']);
+  $result = $req->fetchAll(PDO::FETCH_ASSOC);
+  return $result;
+}
