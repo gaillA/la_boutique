@@ -5,7 +5,7 @@ function userExist($email)
   $db = dbConnect();
   $req = $db->prepare("SELECT COUNT(*) FROM users WHERE email = ?");
   $req->execute([$email]);
-  $result = (int) $req->fetchAll(PDO::FETCH_COLUMN)[0];
+  $result = (int) $req->fetch(PDO::FETCH_COLUMN);
 
   if ($result == 1) {
     return true;
@@ -19,7 +19,7 @@ function getUser($email, $mdp)
     $db = dbConnect();
     $req = $db->prepare("SELECT * FROM users WHERE email = ?");
     $req->execute([$email]);
-    $result = $req->fetchAll(PDO::FETCH_ASSOC)[0];
+    $result = $req->fetch(PDO::FETCH_ASSOC);
 
     if ($mdp == $result['mot_de_passe'])
       return $result;
