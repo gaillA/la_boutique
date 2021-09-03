@@ -299,6 +299,11 @@ form input[type="submit"]:hover {
   text-decoration: line-through;
 }
 
+.center {
+  margin: 0 auto;
+  text-align: center;
+}
+
 @media screen and (max-width: 768px) {
   nav ul li a {
     width: 60px;
