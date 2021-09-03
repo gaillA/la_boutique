@@ -23,22 +23,7 @@ if (isset($_SESSION['email']))
 </head>
 
 <body>
-  <header>
-    <h1>La Maison</h1>
-    <nav class="container">
-      <ul>
-        <li><a href="Accueil"><i class="fas fa-home"></i><span> Accueil</span></a></li>
-        <li><a href="Soldes"><i class="fas fa-dollar-sign"></i><span> Solde</span></a></li>
-        <li><a href="Categorie/Homme"><i class="fas fa-male"></i><span> Homme</span></a></li>
-        <li><a href="Categorie/Femme"><i class="fas fa-female"></i><span> Femme</span></a></li>
-      </ul>
-
-      <ul>
-        <li><a href="Connexion" class="active"><i class="fas fa-user"></i><span> Se connecter</span></a></li>
-        <li><a href="Inscription"><i class="fas fa-sign-in-alt"></i><span> S'inscrire</span></a></li>
-      </ul>
-    </nav>
-  </header>
+  <?php include_once "templates/header.php" ?>
   <main class="container">
     <h2>Connexion</h2>
     <form method="post">

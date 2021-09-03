@@ -18,34 +18,7 @@ $produits = getProducts();
 </head>
 
 <body>
-  <header>
-    <h1>La Maison</h1>
-    <nav class="container">
-      <ul>
-        <li><a href="Accueil" class="active"><i class="fas fa-home"></i><span> Accueil</span></a></li>
-        <li><a href="Soldes"><i class="fas fa-dollar-sign"></i><span> Solde</span></a></li>
-        <li><a href="Categorie/Homme"><i class="fas fa-male"></i><span> Homme</span></a></li>
-        <li><a href="Categorie/Femme"><i class="fas fa-female"></i><span> Femme</span></a></li>
-      </ul>
-      <ul>
-        <?php if (isset($_SESSION['email'])) : ?>
-          <li class="dropdown">
-            <a href="javascript:void(0)" class="dropbtn"><i class="fas fa-user"></i><span> <?= $_SESSION['prenom'] ?></span></a>
-            <div class="dropdown-content mobile">
-              <?php if ($_SESSION['type'] == 'admin') : ?>
-                <a href="Admin"><i class="fas fa-tachometer-alt"></i><span> Panel admin</span></a>
-              <?php endif ?>
-              <a href="Panier"><i class="fas fa-shopping-cart"></i><span> Mes achats</span></a>
-              <a href="Deconnexion"><i class="fas fa-times"></i><span> Déconnexion</span></a>
-            </div>
-          </li>
-        <?php else : ?>
-          <li><a href="Connexion"><i class="fas fa-user"></i><span> Se connecter</span></a></li>
-          <li><a href="Inscription"><i class="fas fa-sign-in-alt"></i><span> S'inscrire</span></a></li>
-        <?php endif ?>
-      </ul>
-    </nav>
-  </header>
+  <?php include_once "public/templates/header.php" ?>
   <main class="container">
     <h2>Accueil</h2>
     <div class="products">
