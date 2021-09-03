@@ -20,7 +20,7 @@ $produits = getSoldes();
 <body>
   <?php include_once "templates/header.php" ?>
   <main class="container">
-    <h2>Accueil</h2>
+    <h2>Soldes</h2>
     <div class="products">
       <?php foreach ($produits as $produit) : ?>
         <div class="card">

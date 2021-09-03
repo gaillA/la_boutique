@@ -20,7 +20,7 @@ if ($_SESSION['type'] != 'admin')
 </head>
 
 <body>
-  <?php include_once "../public/templates/header.php" ?>
+  <?php include_once "../public/templates/header_admin.php" ?>
   <main class="container">
     <h2>Panel Admin</h2>
     <div class="panel">

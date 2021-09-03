@@ -24,7 +24,7 @@ $categories = getCategories();
 </head>
 
 <body>
-  <?php include_once "../public/templates/header.php" ?>
+  <?php include_once "../public/templates/header_admin.php" ?>
   <main class="container">
     <h2>Ajouter produit</h2>
     <form method="post" enctype="multipart/form-data">
