@@ -25,8 +25,8 @@ if ($_SESSION['type'] != 'admin')
     <h2>Panel Admin</h2>
     <div class="panel">
       <a href="AjouterProduit" class="button">Ajouter produit</a><br>
-      <a href="#" class="button">Liste clients</a><br>
-      <a href="#" class="button">Liste produits</a><br>
+      <a href="ListeClients" class="button">Liste clients</a><br>
+      <a href="ListeProduits" class="button">Liste produits</a><br>
     </div>
   </main>
   <script src="public/js/jquery-3.6.0.min.js"></script>
