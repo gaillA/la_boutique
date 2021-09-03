@@ -57,11 +57,17 @@ function errorsAddProduct($post, $files)
   return $erreur;
 }
 
-function getProducts()
+function getProducts($cat = "")
 {
   $db = dbConnect();
-  $req = $db->prepare("SELECT * FROM products");
-  $req->execute();
+  if (empty($cat)) {
+    $req = $db->prepare("SELECT * FROM products");
+    $req->execute();
+  } else {
+    $req = $db->prepare("SELECT * FROM products WHERE categorie = ?");
+    $req->execute([$cat]);
+  }
+
   $result = $req->fetchAll(PDO::FETCH_ASSOC);
   return $result;
 }

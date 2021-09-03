@@ -17,3 +17,12 @@ function getCategory($id)
   $result = $req->fetch(PDO::FETCH_ASSOC);
   return $result;
 }
+
+function getCategoryId($cat)
+{
+  $db = dbConnect();
+  $req = $db->prepare("SELECT id_categorie FROM categories WHERE nom = ?");
+  $req->execute([$cat]);
+  $result = $req->fetch(PDO::FETCH_ASSOC)['id_categorie'];
+  return $result;
+}
