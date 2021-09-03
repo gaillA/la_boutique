@@ -280,6 +280,25 @@ form input[type="submit"]:hover {
   transform: rotate(-45deg);
 }
 
+.product img {
+  display: block;
+  width: 300px;
+  height: 450px;
+  object-fit: cover;
+  border-radius: 5px;
+  float: left;
+  margin-right: 20px;
+}
+
+.product h3,
+.product p {
+  margin-bottom: 10px;
+}
+
+.product span {
+  text-decoration: line-through;
+}
+
 @media screen and (max-width: 768px) {
   nav ul li a {
     width: 60px;

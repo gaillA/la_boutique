@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 02 sep. 2021 à 21:57
+-- Généré le : ven. 03 sep. 2021 à 09:46
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -79,7 +79,7 @@ CREATE TABLE IF NOT EXISTS `products` (
   `reduction` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id_product`),
   KEY `categorie` (`categorie`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `products`
@@ -89,7 +89,9 @@ INSERT INTO `products` (`id_product`, `titre`, `description`, `prix`, `url_image
 (1, 'Pull homme', 'Description du pull', '27', 'homme.jpg', 1, 'M', 'Solde', 10),
 (2, 'Pull', 'Description du pull', '27', 'homme.jpg', 1, 'M', 'New', 0),
 (3, 'Robe', 'Description de la robe', '22', 'femme.webp', 2, 'S', 'New', 0),
-(4, 'Robe', 'Description de la robe', '22', 'femme.webp', 2, 'L', 'New', 0);
+(4, 'Robe', 'Description de la robe', '22', 'femme.webp', 2, 'L', 'New', 0),
+(5, 'test', 'qdqsdqsd', '69', '954228.jpg', 1, 'XL', 'New', 0),
+(6, 'dqzd', 'ddddd', '123', 'Predator_3840x2160.jpg', 2, 'L', 'New', 0);
 
 -- --------------------------------------------------------
 
@@ -107,7 +109,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `type` enum('admin','client') NOT NULL,
   PRIMARY KEY (`id_user`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `users`
@@ -118,7 +120,8 @@ INSERT INTO `users` (`id_user`, `nom`, `prenom`, `email`, `mot_de_passe`, `type`
 (2, 'Gaillat', 'Anthony', 'anthomee@hotmail.fr', 'test', 'client'),
 (3, 'Michel', 'Jean', 'michel@oui.fr', '123', 'client'),
 (4, 'test', 'test', 'test@test.com', 'test', 'client'),
-(8, 'Gaillat', 'Anthony', 'antho@hotmail.fr', 'test', 'client');
+(8, 'Gaillat', 'Anthony', 'antho@hotmail.fr', 'test', 'client'),
+(9, 'Gaillat', 'Anthony', 'an@hotmail.fr', 'aaa', 'client');
 
 --
 -- Contraintes pour les tables déchargées
