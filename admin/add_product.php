@@ -48,7 +48,7 @@ $categories = getCategories();
         <option value="New">New</option>
       </select>
       <input type="text" name="reduction" placeholder="Réduction" value="<?= $_POST['reduction'] ?>"><br>
-      <input type="submit" name="send" value="Connexion"><br>
+      <input type="submit" name="send" value="Ajouter"><br>
       <?php if (isset($_POST['send'])) : ?>
         <?= $erreur ?>
       <?php endif ?>
