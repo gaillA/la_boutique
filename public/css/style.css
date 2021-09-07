@@ -309,6 +309,64 @@ form input[type="submit"]:hover {
   text-align: center;
 }
 
+table,
+tr,
+td,
+th {
+  border: black 1px solid;
+  border-collapse: collapse;
+}
+
+table {
+  width: 100%;
+}
+
+table tr {
+  background: var(--blue-grotto);
+}
+
+table th {
+  background: var(--navy-dark-blue);
+}
+
+table td,
+table th {
+  padding: 7px;
+  color: white;
+  text-align: center;
+}
+
+table .actions {
+  border: none;
+  display: flex;
+  justify-content: space-around;
+}
+
+table a {
+  text-decoration: none;
+  color: white;
+  padding: 5px 7px;
+  border-radius: 5px;
+}
+
+table .edit {
+  background: rgb(40, 192, 35);
+  border: rgb(40, 192, 35) solid 2px;
+}
+
+table .edit:hover {
+  background: rgb(12, 129, 8);
+}
+
+table .supp {
+  background: rgb(185, 23, 23);
+  border: rgb(185, 23, 23) solid 2px;
+}
+
+table .supp:hover {
+  background: rgb(124, 10, 10);
+}
+
 @media screen and (max-width: 768px) {
   nav ul li a {
     width: 60px;
